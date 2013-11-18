@@ -11,7 +11,6 @@ group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'database_cleaner'
   gem 'capybara', "  ~> 2.0.0"
-
   gem 'launchy'
   gem 'rspec-rails'
 end
@@ -30,6 +29,7 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
