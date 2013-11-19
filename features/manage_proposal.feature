@@ -1,0 +1,1 @@
+Feature: Allow user to create, view and delete proposals for review

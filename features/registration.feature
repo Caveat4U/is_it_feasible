@@ -1,0 +1,1 @@
+Feature: Allow user to register for an account with error checking
