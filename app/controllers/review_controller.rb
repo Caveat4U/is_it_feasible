@@ -10,4 +10,8 @@ class ReviewController < ApplicationController
 	def destroy
 
 	end
+
+	def view
+
+	end
 end
