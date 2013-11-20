@@ -1,3 +1,11 @@
 For auth portal, think about using one of the gems from this page:
 https://www.ruby-toolbox.com/categories/rails_authentication
 
+To get the gem to work, basically:
+rails generate devise:install
+rails generate devise User
+
+REMEMBER TO RUN:
+rake db:migrate
+rake routes
+
