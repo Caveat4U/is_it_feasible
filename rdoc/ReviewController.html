@@ -190,6 +190,7 @@
           <div class="method-source-code" id="create-source">
             <pre><span class="ruby-comment"># File app/controllers/review_controller.rb, line 2</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+        <span class="ruby-ivar">@review</span> = <span class="ruby-constant">Review</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:review</span>])
 
 <span class="ruby-keyword">end</span></pre>
           </div><!-- create-source -->
@@ -218,9 +219,12 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/review_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/controllers/review_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
-
+        <span class="ruby-ivar">@review</span> = <span class="ruby-constant">Review</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-ivar">@review</span>.<span class="ruby-identifier">destroy</span>
+<span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Review deleted from the database&quot;</span>
+<span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">proposal_path</span>(<span class="ruby-ivar">@proposal</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- destroy-source -->
           
@@ -248,7 +252,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/review_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/review_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
 
 <span class="ruby-keyword">end</span></pre>
@@ -278,9 +282,10 @@
 
           
           <div class="method-source-code" id="view-source">
-            <pre><span class="ruby-comment"># File app/controllers/review_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/controllers/review_controller.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">view</span>
-
+        <span class="ruby-ivar">@reveiw</span> = <span class="ruby-constant">Review</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:proposal</span>])
+        
 <span class="ruby-keyword">end</span></pre>
           </div><!-- view-source -->
           

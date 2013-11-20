@@ -72,7 +72,7 @@
     
     <li><a href="#method-i-create">#create</a>
     
-    <li><a href="#method-i-update">#update</a>
+    <li><a href="#method-i-new">#new</a>
     
   </ul>
 </nav>
@@ -184,9 +184,11 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/user_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/user_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
-
+        <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>])
+        <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;User Sucessfully Created, Please Login&quot;</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">login_path</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- create-source -->
           
@@ -198,10 +200,10 @@
       </div><!-- create-method -->
 
     
-      <div id="method-i-update" class="method-detail ">
+      <div id="method-i-new" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">update</span><span
+          <span class="method-name">new</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -213,19 +215,19 @@
           
 
           
-          <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/user_controller.rb, line 6</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
-
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/user_controller.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+        <span class="ruby-comment">#default render new user 'login' page</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- update-source -->
+          </div><!-- new-source -->
           
         </div>
 
         
 
         
-      </div><!-- update-method -->
+      </div><!-- new-method -->
 
     
     </section><!-- public-instance-method-details -->
