@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-
+some_letters
 gem 'rails', '3.1.0'
 
 # Bundle edge Rails instead:
