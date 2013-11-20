@@ -1,9 +1,11 @@
 class UserController < ApplicationController
-	def create
-
+	def new
+		#default render new user 'login' page
 	end
 
-	def update
-
+	def create
+		@user = User.create!(params[:user])
+		flash[:notice] = "User Sucessfully Created, Please Login"
+		redirect_to login_path
 	end
 end
