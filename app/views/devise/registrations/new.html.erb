@@ -4,13 +4,13 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :first_name %><br />
-  <%= f.first_name_field :first_name, :autofocus => true %></div>
+  <%= f.text_field :first_name, :autofocus => true %></div>
 
   <div><%= f.label :last_name %><br />
-  <%= f.last_name_field :last_name %></div>
+  <%= f.text_field :last_name %></div>
 
   <div><%= f.label :major %><br />
-  <%= f.major_field :major %></div>
+  <%= f.select :major, options_for_select(["Engineering", "Business"])%>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
