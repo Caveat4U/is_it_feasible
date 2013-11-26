@@ -1,10 +1,11 @@
 IsItFeasible::Application.routes.draw do
   devise_for :users, :path => "auth", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
-  resources :users, :proposals, :reviews
 
   root to: redirect("/auth/login")
 
-  devise_scope :user do
-  	root to: "dashboard"
+  namespace :user do
+  	root :to redirect("/user")
   end
+
+  match 'dashboard' => 'user_dashboard#index', :as => 'user_root'
 end
