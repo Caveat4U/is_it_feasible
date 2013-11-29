@@ -28,3 +28,12 @@
 
 <%= link_to 'Edit', edit_proposal_path(@proposal) %> |
 <%= link_to 'Back', proposals_path %>
+
+<h3>Reviews</h3>
+<div id="reviews">
+<% if @proposal.reviews.exists? %><co id='ch09_191_1' />
+<%= render @proposal.reviews.select(&:persisted?) %>
+<% else %>
+There are no reviews for this proposal.
+<% end %>
+</div>
