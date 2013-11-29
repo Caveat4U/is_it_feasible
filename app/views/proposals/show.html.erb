@@ -31,8 +31,18 @@
 
 <h3>Reviews</h3>
 <div id="reviews">
-<% if @proposal.reviews.exists? %><co id='ch09_191_1' />
-<%= render @proposal.reviews.select(&:persisted?) %>
+<% if @reviews.count > 0 %>
+  <% @reviews.each do |review| %>
+    <%= review.proposal_id %></td>
+    <%= review.user_id %></td>
+    <%= review.comment %></td>
+    <%= review.rating %></td>
+    <%= review.plausible_language %></td>
+    <%= review.user_interested %></td>
+    <%= link_to 'Show', review %></td>
+    <%= link_to 'Edit', edit_review_path(review) %></td>
+    <%= link_to 'Destroy', review, confirm: 'Are you sure?', method: :delete %>
+  <% end %>
 <% else %>
 There are no reviews for this proposal.
 <% end %>
