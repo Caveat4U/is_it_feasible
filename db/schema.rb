@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131129212503) do
+ActiveRecord::Schema.define(:version => 20131129215240) do
 
   create_table "proposals", :force => true do |t|
     t.string   "title"
@@ -24,10 +24,14 @@ ActiveRecord::Schema.define(:version => 20131129212503) do
   end
 
   create_table "reviews", :force => true do |t|
-    t.string   "review_text",         :null => false
-    t.string   "reviewed_by",         :null => false
-    t.integer  "review_rating",       :null => false
-    t.datetime "created_at_datetime"
+    t.integer  "proposal_id"
+    t.integer  "user_id"
+    t.string   "comment"
+    t.integer  "rating"
+    t.string   "plausible_language"
+    t.boolean  "user_interested"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
