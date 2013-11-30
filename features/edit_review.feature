@@ -7,5 +7,5 @@ Feature: Allow engineering student user to edit their review of a proposal
 Scenario: Valid edit
 	#To do
 
-Scneario: Invalid edit
+#Scneario: Invalid edit
 	#To do
