@@ -20,14 +20,10 @@
   <%= @proposal.score %>
 </p>
 
-<p>
-  <b>User:</b>
-  <%= @proposal.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_proposal_path(@proposal) %> |
-<%= link_to 'Back', proposals_path %>
+<% if user_is_owner_of_proposal?(@proposal.user_id) %>
+  <%= link_to 'Edit', edit_proposal_path(@proposal) %>
+  <%= link_to 'Delete', @proposal, confirm: 'Are you sure?', method: :delete %></p>
+<% end %>
 
 <h3>Reviews</h3>
 <div id="reviews">
@@ -36,14 +32,18 @@
     <p><strong>Rating: </strong><%= review.rating %></p>
     <p><strong>Plausible Language: </strong><%= review.plausible_language %></p>
     <p><strong>Comment: </strong><%= review.comment %></p>
-    <p><%= link_to 'Show', review %>
-    <%= link_to 'Edit', edit_review_path(review) %>
-    <%= link_to 'Destroy', review, confirm: 'Are you sure?', method: :delete %></p>
+    <% if user_is_owner_of_review?(review.user_id) %>
+      <p><%= link_to 'Show', review %>
+      <%= link_to 'Edit', edit_review_path(review) %>
+      <%= link_to 'Delete', review, confirm: 'Are you sure?', method: :delete %></p>
+    <% end %>
   <% end %>
 <% else %>
   There are no reviews for this proposal.
 <% end %>
 
-<%= link_to "Add Review", new_review_path(:proposal_id => @proposal.id ) %>
+<% if (current_user.major == "Engineering") && (user_has_no_review_here(proposal_id)) %>
+  <%= link_to "Add Review", new_review_path(:proposal_id => @proposal.id ) %>
+<% end %>
 
 </div>

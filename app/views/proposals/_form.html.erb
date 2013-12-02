@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= hidden_field(:proposal, :user_id, :value => current_user.id) %>
+
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -26,10 +28,6 @@
   <div class="field">
     <%= f.label :score %><br />
     <%= f.number_field :score %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

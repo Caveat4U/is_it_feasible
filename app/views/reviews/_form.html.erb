@@ -12,15 +12,8 @@
   <% end %>
 
   <%= hidden_field(:review, :proposal_id, :value => params[:proposal_id]) %>
+  <%= hidden_field(:review, :user_id, :value => current_user.id) %>
 
-  <div class="field">
-    <%= f.label :proposal_id %><br />
-    <%= f.number_field :proposal_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
   <div class="field">
     <%= f.label :comment %><br />
     <%= f.text_field :comment %>

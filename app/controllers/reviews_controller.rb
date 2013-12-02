@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_filter :require_user_to_be_engineering!
+
   # GET /reviews
   # GET /reviews.json
   def index
