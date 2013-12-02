@@ -21,6 +21,15 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def get_reviews
+    @review = Review.find(params[:proposal_id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @review }
+    end
+  end
+
   # GET /reviews/new
   # GET /reviews/new.json
   def new

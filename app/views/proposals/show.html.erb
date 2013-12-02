@@ -31,19 +31,19 @@
 
 <h3>Reviews</h3>
 <div id="reviews">
-<% if @reviews.count > 0 %>
-  <% @reviews.each do |review| %>
-    <%= review.proposal_id %></td>
-    <%= review.user_id %></td>
-    <%= review.comment %></td>
-    <%= review.rating %></td>
-    <%= review.plausible_language %></td>
-    <%= review.user_interested %></td>
-    <%= link_to 'Show', review %></td>
-    <%= link_to 'Edit', edit_review_path(review) %></td>
-    <%= link_to 'Destroy', review, confirm: 'Are you sure?', method: :delete %>
+<% if @proposal.has_reviews?(@proposal.id) %>
+  <% @proposal.get_reviews(@proposal.id).each do |review| %>
+    <p><strong>Rating: </strong><%= review.rating %></p>
+    <p><strong>Plausible Language: </strong><%= review.plausible_language %></p>
+    <p><strong>Comment: </strong><%= review.comment %></p>
+    <p><%= link_to 'Show', review %>
+    <%= link_to 'Edit', edit_review_path(review) %>
+    <%= link_to 'Destroy', review, confirm: 'Are you sure?', method: :delete %></p>
   <% end %>
 <% else %>
-There are no reviews for this proposal.
+  There are no reviews for this proposal.
 <% end %>
+
+<%= link_to "Add Review", new_review_path(:proposal_id => @proposal.id ) %>
+
 </div>
