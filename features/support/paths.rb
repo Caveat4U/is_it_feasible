@@ -20,6 +20,7 @@ module NavigationHelpers
     when /^proposals\/2$/ then '/proposals/2'
     when /^proposals\/new$/ then '/proposals/new'
     when /^auth\/login$/ then '/auth/login'
+    when /^reviews\/new\?proposal_id\=1$/ then '/reviews/new?proposal_id=1'
 
 
     # Add more mappings here.
