@@ -4,6 +4,6 @@ module ReviewsHelper
   	end
 
   	def user_has_no_review_here(proposal_id)
-  		reviews.find_by_user_id_and_proposal_id(current_user.id, proposal_id) == 0
+      reviews.find_by_user_id_and_proposal_id(current_user.id, proposal_id) == 0
   	end
 end

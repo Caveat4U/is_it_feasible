@@ -12,6 +12,7 @@
   </tr>
 
 <% @proposals.each do |proposal| %>
+  <% if (current_user.major == "Business") and (proposal.user_id == current_user.id) %>
   <tr>
     <td><%= proposal.title %></td>
     <td><%= proposal.summary %></td>
@@ -21,9 +22,19 @@
     <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
     <td><%= link_to 'Destroy', proposal, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
+  <% end %>
+  <% if current_user.major == "Engineering" %>
+    <td><%= proposal.title %></td>
+    <td><%= proposal.summary %></td>
+    <td><%= proposal.body %></td>
+    <td><%= proposal.score %></td>
+    <td><%= link_to 'Show', proposal %></td>
+  <% end %>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Proposal', new_proposal_path %>
+<% if (current_user.major == "Business") %>
+  <%= link_to 'New Proposal', new_proposal_path %>
+<% end %>

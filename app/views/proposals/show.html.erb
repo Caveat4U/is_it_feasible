@@ -42,8 +42,10 @@
   There are no reviews for this proposal.
 <% end %>
 
-<% if (current_user.major == "Engineering") && (user_has_no_review_here(proposal_id)) %>
-  <%= link_to "Add Review", new_review_path(:proposal_id => @proposal.id ) %>
+<p><% if (current_user.major == "Engineering") && (user_has_no_review_here(@proposal_id)) %>
+  <%= link_to "Add Review | ", new_review_path(:proposal_id => @proposal.id ) %>
 <% end %>
+
+<%= link_to 'Back', proposals_path %></p>
 
 </div>
