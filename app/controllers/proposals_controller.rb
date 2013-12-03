@@ -1,8 +1,15 @@
 class ProposalsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /proposals
   # GET /proposals.json
   def index
-    @proposals = Proposal.all
+    if current_user.major == "Business"
+      @proposals = Proposal.find_all_by_user_id(current_user.id)
+    else
+      @proposals = Proposal.all
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb

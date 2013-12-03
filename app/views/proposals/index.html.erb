@@ -18,12 +18,16 @@
     <td><%= proposal.body %></td>
     <td><%= proposal.score %></td>
     <td><%= link_to 'Show', proposal %></td>
-    <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
-    <td><%= link_to 'Destroy', proposal, confirm: 'Are you sure?', method: :delete %></td>
+    <% if (current_user.major == "Business") %>
+      <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
+      <td><%= link_to 'Destroy', proposal, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Proposal', new_proposal_path %>
+<% if (current_user.major == "Business") %>
+  <%= link_to 'New Proposal', new_proposal_path %>
+<% end %>
