@@ -4,22 +4,25 @@ Feature: Allow business student user to create proposals for review
 	I want a form to create proposal
 	Such that engineering student users can view and provide feedback
 
-Background: users have been added to database
+Background: users have been added to database and I log in as a business student.
 
   Given the following users exist:
-  | first_name  | last_name  | email               | major               |
-  | FirstB      | LastB      | email@colorado.edu  | Business Student    |
-  | FirstE      | LastE      | email2@colorado.edu | Engineering Student |
-  And I am on "proposals/new" 
+  | first_name  | last_name  | email               | major               | password |
+  | FirstB      | LastB      | emailb@colorado.edu  | Business            | $2a$10$8UOo0aNXJFYPSVBsRz.yluVKAZy4SUfPALxoE4.urDF0LkHx3pAEu |
+  | FirstE      | LastE      | emaile@colorado.edu | Engineering         | $2a$10$8UOo0aNXJFYPSVBsRz.yluVKAZy4SUfPALxoE4.urDF0LkHx3pAEu |
+  And I go to auth/login
+  And I fill in the following:
+    | email | emailb@colorado.edu |
+    | password | 12345678 |
+  And I press "Sign in"
+  And I am on /proposals/new
 
 Scenario: Valid form submission
-  Given I fill in the following:
+  When I fill in the following:
     | title | Proposal Title |
     | summary | This is a summary |
     | body | This is a body for the proposals |
-    | score | 0 |
-    | user_id | 0 |
-  When I press "Create Proposal"
+  And I press "Create Proposal"
   Then I should see "Success"
   And I should not see "Error"
 

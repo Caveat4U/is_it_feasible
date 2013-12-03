@@ -7,5 +7,14 @@ rails generate devise User
 
 REMEMBER TO RUN:
 rake db:migrate
+
 rake routes
 
+rake db:test:clone
+
+rake cucumber
+
+If you run into problems with cucumber, try:
+bundle exec cucumber  --profile default -b -v
+
+That will have a verbose stack trace.
