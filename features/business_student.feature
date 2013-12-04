@@ -27,7 +27,7 @@ Background: users have been added to database and I log in as a business student
   #And I log in as a "business" student
 
 Scenario: Correct landing page
-  Then I should see "Listing proposals"
+  Then I should see "Home Page"
 
 Scenario: Valid form submission
   When I go to proposals/new
@@ -37,7 +37,7 @@ Scenario: Valid form submission
     | Summary | This is a summary |
     | Body | This is a body for the proposals |
   And I press "Create Proposal"
-  Then I should see "Success"
+  Then I should see "Proposal was successfully created"
   And I should not see "Error"
 
 

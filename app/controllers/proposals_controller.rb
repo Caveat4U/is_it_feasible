@@ -42,6 +42,11 @@ class ProposalsController < ApplicationController
   # GET /proposals/1/edit
   def edit
     @proposal = Proposal.find(params[:id])
+    if user_signed_in? and ( current_user.major == "Business" ) and ( @proposal.user_id == current_user.id )
+      @proposal
+    else
+      redirect_to root_path, :alert => "Access Denied"
+    end
   end
 
   # POST /proposals

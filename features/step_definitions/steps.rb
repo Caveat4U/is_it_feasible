@@ -37,6 +37,12 @@ When /I want to debug/i do
   true
 end
 
+When(/^I redirect to "(.*?)"$/) do |path|
+  visit path
+  #visit '/reviews/new', :proposal_id => '1'
+  #redirect_to :controller => 'reviews', :action => 'new', :proposal_id => '1'
+end  
+
 #After do |scenario|
 #  Cucumber.wants_to_quit = true if scenario.failed?
 #end
