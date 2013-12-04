@@ -13,3 +13,25 @@ Given(/^the following proposals exist:$/) do |proposals_table|
     Proposal.create!(proposal)
   end
 end
+
+Given(/^I log in as (a|an) (.+) student$/) do |trash, student_type|
+  if student_type == "engineering"
+    email = "emaile@colorado.edu"
+  elsif student_type == "business"
+    email = "emailb@colorado.edu"
+  else
+    scenario.fail!("FAIL")
+  end
+steps %Q{
+  Given I go to auth/login
+  And I fill in the following:
+    | Email | #{email} |
+    | Password | 12345678 |
+  And I press "Sign in"
+  }
+end
+
+When /I want to debug/i do
+  debugger
+  true
+end
