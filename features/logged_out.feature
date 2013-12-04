@@ -6,7 +6,7 @@ Feature: Allow business student user to create proposals for review
 
 Scenario: Proposals are access protected.
   When I go to proposals/new
-  Then I should see "Access Denied"
+  Then I should see "You need to sign in or sign up before continuing."
 
 Scenario: Reviews are access protected.
   When I go to reviews/new?proposal_id=1

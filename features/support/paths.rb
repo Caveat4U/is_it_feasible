@@ -22,6 +22,7 @@ module NavigationHelpers
     when /^proposals\/1\/edit$/ then '/proposals/1/edit'
     when /^proposals\/new$/ then '/proposals/new'
     when /^auth\/login$/ then '/auth/login'
+    when /^auth\/register\/cmon_let_me_in$/ then '/auth/register/cmon_let_me_in'
     when /^reviews\/new\?proposal_id\=1$/ then '/reviews/new?proposal_id=1'
 
 
