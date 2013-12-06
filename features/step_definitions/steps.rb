@@ -1,3 +1,4 @@
+# Add users to test database from hash
 Given(/^the following users exist:$/) do |users_table|
   users_table.hashes.each do |user|
     # each returned element will be a hash whose key is the table header.
@@ -6,6 +7,7 @@ Given(/^the following users exist:$/) do |users_table|
   end
 end
 
+# Add proposals to test database from hash
 Given(/^the following proposals exist:$/) do |proposals_table|
   proposals_table.hashes.each do |proposal|
     # each returned element will be a hash whose key is the table header.
@@ -14,35 +16,9 @@ Given(/^the following proposals exist:$/) do |proposals_table|
   end
 end
 
-Given(/^I log in as (a|an) "([^"]*)" student$/) do |trash, student_type|
-  fail(student_type)
-  if student_type == "engineering"
-    email = "emaile@colorado.edu"
-  else
-    email = "emailb@colorado.edu"
-  #else
-  #  Cucumber.wants_to_quit = true
-  end
-steps %Q{
-Given I go to auth/login
-And I fill in the following:
-  | Email | #{email} |
-  | Password | 12345678 |
-And I press "Sign in"
-}
+# Needed to match correct password field since this version of capybara
+# doesn't have the exact match feature.
+And (/^I enter the password: "(.*?)"$/) do |value|
+  page.first(:field, "Password").set(value)
+  page.first(:field, "Password confirmation").set(value)
 end
-
-When /I want to debug/i do
-  debugger
-  true
-end
-
-When(/^I redirect to "(.*?)"$/) do |path|
-  visit path
-  #visit '/reviews/new', :proposal_id => '1'
-  #redirect_to :controller => 'reviews', :action => 'new', :proposal_id => '1'
-end  
-
-#After do |scenario|
-#  Cucumber.wants_to_quit = true if scenario.failed?
-#end
