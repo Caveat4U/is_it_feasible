@@ -15,6 +15,16 @@ module NavigationHelpers
 
     when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
     when /^the movies page$/ then '/movies'
+    #when /^\proposals\/(.+)$/ do |page_name| then '/proposals/' + page_name
+    when /^proposals$/ then '/proposals'
+    when /^proposals\/1$/ then '/proposals/1'
+    when /^proposals\/2$/ then '/proposals/2'
+    when /^proposals\/1\/edit$/ then '/proposals/1/edit'
+    when /^proposals\/new$/ then '/proposals/new'
+    when /^auth\/login$/ then '/auth/login'
+    when /^auth\/register\/cmon_let_me_in$/ then '/auth/register/cmon_let_me_in'
+    when /^reviews\/new\?proposal_id\=1$/ then '/reviews/new?proposal_id=1'
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
