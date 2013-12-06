@@ -20,8 +20,9 @@ Background: Users and proposals have been added to the database and I am logged 
   And I press "Sign in"
   And I should see "Signed in successfully."
 
-Scenario: Valid review form
-  When I redirect to "reviews/new?proposal_id=1"
+Scenario: Valid review form and verification
+  When I go to proposals/1
+  And I follow "Add Review"
   And I should see "New review"
   And I fill in the following:
   | Comment | This is a review. |
@@ -31,8 +32,6 @@ Scenario: Valid review form
   And I press "Create Review"
   Then I should see "Review was successfully created"
   And I should not see "Error"
-
-Scenario: Review only on correct page - Does the database stay persistent?
   Given I go to proposals/1
   Then I should see "This is a review."
   And I go to proposals/2
@@ -40,9 +39,9 @@ Scenario: Review only on correct page - Does the database stay persistent?
 
 Scenario: Cannot see edit or delete links on proposals page
   When I go to proposals
-  Then I should not see "Edit"
-  And I should not see "Delete"
+  Then I should not see "Edit Proposal"
+  And I should not see "Delete Proposal"
 
 Scenario: Cannot edit or delete proposals
   When I go to proposals/1/edit
-  Then I should see "You need to sign in or sign up before continuing."
+  Then I should see "Access Denied"
