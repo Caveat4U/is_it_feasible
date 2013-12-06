@@ -24,12 +24,11 @@ Background: users have been added to database and I log in as a business student
   | Email | emailb@colorado.edu |
   | Password | 12345678 |
   And I press "Sign in"
-  #And I log in as a "business" student
 
 Scenario: Correct landing page
-  Then I should see "Home Page"
+  Then I should see "Listing proposals"
 
-Scenario: Valid form submission
+Scenario: Valid proposal form submission
   When I go to proposals/new
   And I should see "New proposal"
   And I fill in the following:

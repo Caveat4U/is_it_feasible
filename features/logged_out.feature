@@ -10,4 +10,4 @@ Scenario: Proposals are access protected.
 
 Scenario: Reviews are access protected.
   When I go to reviews/new?proposal_id=1
-  Then I should see "Access Denied"
+  Then I should see "You need to sign in or sign up before continuing."

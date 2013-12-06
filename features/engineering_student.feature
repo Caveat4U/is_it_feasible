@@ -20,6 +20,9 @@ Background: Users and proposals have been added to the database and I am logged 
   And I press "Sign in"
   And I should see "Signed in successfully."
 
+Scenario: Correct landing page
+  Then I should see "Listing proposals"
+
 Scenario: Valid review form and verification
   When I go to proposals/1
   And I follow "Add Review"
@@ -37,11 +40,16 @@ Scenario: Valid review form and verification
   And I go to proposals/2
   And I should not see "This is a review."
 
-Scenario: Cannot see edit or delete links on proposals page
+Scenario: Cannot see create, edit or delete links on proposals page
   When I go to proposals
   Then I should not see "Edit Proposal"
   And I should not see "Delete Proposal"
+  And I should not see "Create Proposal"
 
-Scenario: Cannot edit or delete proposals
+Scenario: Cannot edit or delete proposals via the URL
   When I go to proposals/1/edit
+  Then I should see "Access Denied"
+
+Scenario: Cannot create proposals via the URL
+  When I go to proposals/new
   Then I should see "Access Denied"

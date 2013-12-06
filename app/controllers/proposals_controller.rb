@@ -31,11 +31,15 @@ class ProposalsController < ApplicationController
   # GET /proposals/new
   # GET /proposals/new.json
   def new
-    @proposal = Proposal.new
+    if user_signed_in? and ( current_user.major == "Business" )
+      @proposal = Proposal.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @proposal }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @proposal }
+      end
+    else
+      redirect_to root_path, :alert => "Access Denied"
     end
   end
 
@@ -52,16 +56,20 @@ class ProposalsController < ApplicationController
   # POST /proposals
   # POST /proposals.json
   def create
-    @proposal = Proposal.create!(params[:proposal])
+    if user_signed_in? and ( current_user.major == "Business" )
+      @proposal = Proposal.create!(params[:proposal])
 
-    respond_to do |format|
-      if @proposal.save
-        format.html { redirect_to @proposal, notice: 'Proposal was successfully created.' }
-        format.json { render json: @proposal, status: :created, location: @proposal }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @proposal.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @proposal.save
+          format.html { redirect_to @proposal, notice: 'Proposal was successfully created.' }
+          format.json { render json: @proposal, status: :created, location: @proposal }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @proposal.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to root_path, :alert => "Access Denied"
     end
   end
 
@@ -70,15 +78,19 @@ class ProposalsController < ApplicationController
   def update
     @proposal = Proposal.find(params[:id])
 
-    respond_to do |format|
-      if @proposal.update_attributes(params[:proposal])
-        format.html { redirect_to @proposal, notice: 'Proposal was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @proposal.errors, status: :unprocessable_entity }
+    if user_signed_in? and ( current_user.major == "Business" ) and ( @proposal.user_id == current_user.id )
+      respond_to do |format|
+        if @proposal.update_attributes(params[:proposal])
+          format.html { redirect_to @proposal, notice: 'Proposal was successfully updated.' }
+          format.json { head :ok }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @proposal.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    else
+      redirect_to root_path, :alert => "Access Denied"
+    end  
   end
 
   # DELETE /proposals/1

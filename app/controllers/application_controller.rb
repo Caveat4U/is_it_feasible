@@ -28,4 +28,8 @@ class ApplicationController < ActionController::Base
   		redirect_to root_path, :alert => "Access Denied"
   	end
   end
+
+  def after_sign_in_path_for(resource)
+    proposals_path
+  end
 end
