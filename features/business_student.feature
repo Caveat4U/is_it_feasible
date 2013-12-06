@@ -10,15 +10,7 @@ Background: users have been added to database and I log in as a business student
   | first_name  | last_name  | email               | major               | password |
   | FirstB      | LastB      | emailb@colorado.edu | Business            | 12345678 |
   | FirstE      | LastE      | emaile@colorado.edu | Engineering         | 12345678 |
-  #And I go to auth/register/cmon_let_me_in
-  #And I fill in the following:
-  #| First name | FirstB |
-  #| Last name | LastB |
-  #| Email | emailb@colorado.edu |
-  #| user_password | 12345678|
-  #| Password confirmation | 12345678 |
-  #And I select "Business" from "Major"
-  #And I press "Sign up"
+
   And I go to auth/login
   And I fill in the following:
   | Email | emailb@colorado.edu |
