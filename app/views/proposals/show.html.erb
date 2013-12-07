@@ -27,7 +27,7 @@
 
 <h3>Reviews</h3>
 <div id="reviews">
-<% if @proposal.has_reviews?(@proposal.id) %>
+<% if @proposal.get_reviews(@proposal.id) != nil %>
   <% @proposal.get_reviews(@proposal.id).each do |review| %>
     <p><strong>Rating: </strong><%= review.rating %></p>
     <p><strong>Plausible Language: </strong><%= review.plausible_language %></p>
