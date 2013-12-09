@@ -3,7 +3,20 @@ module ReviewsHelper
   		user_signed_in? && (review_user_id == current_user.id)
   	end
 
+  	# Function searches to determine if user has already written a review
+  	# for the current proposal
+  	#
+  	# Parameters: Proposal ID
+  	#
+  	# Returns 'false' if user has already written a review
+  	# Returns 'true' if user hasn't written a review yet
   	def user_has_no_review_here(proposal_id)
-      Review.find_all_by_user_id_and_proposal_id(current_user.id, proposal_id) == nil
+  		has_review = true
+     	Review.find_all_by_proposal_id(proposal_id).each do |review|
+     		if review.user_id == current_user.id
+     			has_review = false
+     		end
+     	end
+     	has_review
   	end
 end

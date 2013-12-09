@@ -1,10 +1,16 @@
 class ReviewsController < ApplicationController
+  # Requires any method call to be made by an engineering user if called directly
   before_filter :require_user_to_be_engineering!
 
-  # GET /reviews
-  # GET /reviews.json
+  # Method to get list of reviews
+  # Index of reviews only return for engineering students
+  # Reviews returned are only those written by the engineering student user
   def index
-    @reviews = Review.all
+    if user_signed_in? and ( current_user.major == "Engineering" )
+      @reviews = Review.find_all_by_user_id(current_user.id)
+    else
+      redirect_to root_path, :alert => "Access Denied"
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,8 +18,11 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # GET /reviews/1
-  # GET /reviews/1.json
+  # Method to show individual review
+  # No protection on this method, when not paired to a proposal
+  # Review has no meaning
+  # Parameters: review id
+  # Returns: single review
   def show
     @review = Review.find(params[:id])
 
@@ -23,6 +32,9 @@ class ReviewsController < ApplicationController
     end
   end
 
+  # Method to get a hash of reviews by the proposal id
+  # Paremeters: proposal id
+  # Returns: hash of reviews
   def get_reviews
     @review = Review.find(params[:proposal_id])
 
@@ -32,8 +44,8 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # GET /reviews/new
-  # GET /reviews/new.json
+  # Method to create new review
+  # Renders form by default
   def new
     @review = Review.new
 
@@ -43,13 +55,21 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # GET /reviews/1/edit
+  # Method to call edit on review
+  # Renders form
+  # Validates calling user owns review
   def edit
     @review = Review.find(params[:id])
+    
+    if current_user.id == @review.user_id
+      @review
+    else
+      redirect_to root_path, :alert => "Access Denied"
+    end
   end
 
-  # POST /reviews
-  # POST /reviews.json
+  # Method to create new revies
+  # Renders form
   def create
     @review = Review.new(params[:review])
 
@@ -64,12 +84,14 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # PUT /reviews/1
-  # PUT /reviews/1.json
+  # Method to call update on review
+  # Renders form
+  # Validates calling user owns review
   def update
     @review = Review.find(params[:id])
 
-    respond_to do |format|
+    if current_user.id == @review.user_id
+      respond_to do |format|
       if @review.update_attributes(params[:review])
         format.html { redirect_to @review, notice: 'Review was successfully updated.' }
         format.json { head :ok }
@@ -78,17 +100,27 @@ class ReviewsController < ApplicationController
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
+
+    else
+      redirect_to root_path, :alert => "Access Denied"
+    end 
   end
 
-  # DELETE /reviews/1
-  # DELETE /reviews/1.json
+  # Method to delete review
+  # Validates user is owner of review
+  # If validation fails, redirects to root
   def destroy
     @review = Review.find(params[:id])
-    @review.destroy
 
-    respond_to do |format|
-      format.html { redirect_to reviews_url }
-      format.json { head :ok }
-    end
+    if current_user.id == @review.user_id
+      @review.destroy
+
+      respond_to do |format|
+        format.html { redirect_to reviews_url }
+        format.json { head :ok }
+      end
+    else
+      redirect_to root_path, :alert => "Access Denied"
+    end  
   end
 end

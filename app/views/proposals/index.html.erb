@@ -17,10 +17,10 @@
     <td><%= proposal.summary %></td>
     <td><%= proposal.body %></td>
     <td><%= proposal.score %></td>
-    <td><%= link_to 'Show', proposal %></td>
+    <td><%= link_to 'Show Proposal', proposal %></td>
     <% if (current_user.major == "Business") %>
-      <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
-      <td><%= link_to 'Destroy', proposal, confirm: 'Are you sure?', method: :delete %></td>
+      <td><%= link_to 'Edit Proposal', edit_proposal_path(proposal) %></td>
+      <td><%= link_to 'Destroy Proposal', proposal, confirm: 'Are you sure?', method: :delete %></td>
     <% end %>
   </tr>
 <% end %>

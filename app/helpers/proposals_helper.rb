@@ -1,6 +1,6 @@
 module ProposalsHelper
-	def has_reviews?
-    	@reviews.count > 0
+	def has_reviews?(proposal_id)
+		Review.find(proposal_id).count > 0
   	end
 
   	def user_is_owner_of_proposal?(proposal_user_id)
