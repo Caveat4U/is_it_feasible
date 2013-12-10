@@ -30,6 +30,8 @@ describe ProposalsController do
   # ProposalsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before { controller.stub(:authenticate_user!).and_return true }
+
   describe "GET index" do
     it "assigns all proposals as @proposals" do
       proposal = Proposal.create! valid_attributes

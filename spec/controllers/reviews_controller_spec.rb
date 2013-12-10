@@ -30,6 +30,8 @@ describe ReviewsController do
   # ReviewsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before { controller.stub(:authenticate_user!).and_return true }
+
   describe "GET index" do
     it "assigns all reviews as @reviews" do
       review = Review.create! valid_attributes
