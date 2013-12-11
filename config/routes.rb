@@ -8,5 +8,5 @@ IsItFeasible::Application.routes.draw do
 		root :to => 'proposals#index', as: :authenticated_user
 	end
 
-	root :to => 'user#dashboard'
+	root :to => 'auth#login'
 end
