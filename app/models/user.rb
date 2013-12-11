@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :reviews
-  has_many :proposals
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
