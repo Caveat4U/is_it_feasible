@@ -1,4 +1,11 @@
 module ReviewsHelper
+    # Method to validate user is owner of review and therefore has
+    # permissions to modify/delete
+    #
+    # Parameters: Proposal ID
+    # 
+    # Returns: True if review(s) exist
+    # Returns: False if there are no reviews
   	def user_is_owner_of_review?(review_user_id)
   		user_signed_in? && (review_user_id == current_user.id)
   	end
