@@ -1,3 +1,26 @@
+#def mock_warden(scope)
+#  warden = mock('warden')
+#  warden.stub!("authenticate_#{scope}!").and_return(true)
+#  warden.stub!(:authenticate!).and_return(true)
+#  return warden
+#end
+ 
+#module ControllerExampleGroupBehaviour
+#  %w[get post put delete head].map do |method|
+# 
+#    alias_method "orig_#{method}", method
+# 
+#    eval <<-CODE
+#    def #{method}(*args)
+#    action = args.shift
+#    params = args.shift || {}
+#    args << {'warden' => @warden}
+#    orig_#{method} action, params, *args
+#    end
+#    CODE
+#  end
+#end
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
@@ -38,4 +61,25 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include Devise::TestHelpers, :type => :controller
+  #user = double('user')
+  #request.env['warden'].stub :authenticate! => user
+  #controller.stub :current_user => user
+end
+
+module ControllerHelpers
+  def sign_in(user = double('user'))
+    if user.nil?
+      request.env['warden'].stub(:authenticate!).
+        and_throw(:warden, {:scope => :user})
+      controller.stub :current_user => nil
+    else
+      request.env['warden'].stub :authenticate! => user
+      controller.stub :current_user => user
+    end
+  end
+end
+
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+  config.include ControllerHelpers, :type => :controller
 end
