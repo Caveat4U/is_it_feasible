@@ -19,6 +19,7 @@ class ProposalsController < ApplicationController
   end
 
   # Method to show specifci proposal
+  #
   # If user is business user, redirect to root if they don't own it
   # If engineering user, just renders page
   # If proposal doesn't exist, then redirect to root
@@ -41,6 +42,7 @@ class ProposalsController < ApplicationController
 
   # Method to create new proposal
   # Validates user signed in and business user
+  #
   # If validation fails, redirects to root
   def new
     if user_signed_in? and ( current_user.major == "Business" )
@@ -56,7 +58,9 @@ class ProposalsController < ApplicationController
   end
 
   # Method to render edit form for a specfic proposal
+  #
   # Parameters: proposal id
+  #
   # Validates user is logged in and the proposal belongs to the user
   # If validation fails, redirects to root
   def edit
@@ -69,6 +73,7 @@ class ProposalsController < ApplicationController
   end
 
   # Method to create new proposal
+  #
   # Validates user signed in and business user
   # If validation fails, redirects to root
   def create
@@ -90,7 +95,9 @@ class ProposalsController < ApplicationController
   end
 
   # Method to render update form for a specfic proposal
-  # Parameters: proposal id
+  #
+  # Parameters: Proposal ID
+  #
   # Validates user is logged in and the proposal belongs to the user
   # If validation fails, redirects to root
   def update
@@ -112,7 +119,9 @@ class ProposalsController < ApplicationController
   end
 
   # Method to delete proposal
-  # Parameters: proposal id
+  # 
+  # Parameters: Proposal ID
+  #
   # Verifies user is logged in and owns proposal
   # If verification fails, redirects to root
   def destroy

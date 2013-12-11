@@ -18,6 +18,7 @@
     <td><%= proposal.body %></td>
     <td><%= proposal.score %></td>
     <td><%= link_to 'Show Proposal', proposal %></td>
+    <%# If current user isn't business, don't show edit and delete links %>
     <% if (current_user.major == "Business") %>
       <td><%= link_to 'Edit Proposal', edit_proposal_path(proposal) %></td>
       <td><%= link_to 'Destroy Proposal', proposal, confirm: 'Are you sure?', method: :delete %></td>
@@ -28,6 +29,8 @@
 
 <br />
 
+<%# If user is busesines user, allow creation of proposal via link.
+Otherwise, do not show create proposal link %>
 <% if (current_user.major == "Business") %>
   <%= link_to 'New Proposal', new_proposal_path %>
 <% end %>

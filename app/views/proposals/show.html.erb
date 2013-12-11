@@ -20,6 +20,7 @@
   <%= @proposal.score %>
 </p>
 
+<%# If current user is the owner of the proposal, then show modify and delete links %>
 <% if user_is_owner_of_proposal?(@proposal.user_id) %>
   <%= link_to 'Edit', edit_proposal_path(@proposal) %>
   <%= link_to 'Delete', @proposal, confirm: 'Are you sure?', method: :delete %></p>
@@ -32,16 +33,18 @@
     <p><strong>Rating: </strong><%= review.rating %></p>
     <p><strong>Plausible Language: </strong><%= review.plausible_language %></p>
     <p><strong>Comment: </strong><%= review.comment %></p>
+    <%# If the current user owns the review show the modify and delete links %>
     <% if user_is_owner_of_review?(review.user_id) %>
-      <p><%= link_to 'Show Proposal', review %>
-      <%= link_to 'Edit Proposal', edit_review_path(review) %>
-      <%= link_to 'Delete Proposal', review, confirm: 'Are you sure?', method: :delete %></p>
+      <p><%= link_to 'Edit Review', edit_review_path(review) %>
+      <%= link_to 'Delete Review', review, confirm: 'Are you sure?', method: :delete %></p>
     <% end %>
   <% end %>
 <% else %>
   There are no reviews for this proposal.
 <% end %>
 
+<%# If the current user is an engineering major and the user hasn't created a review for this
+proposal, then show the link the user to add a review %>
 <p><% if (current_user.major == "Engineering") && (user_has_no_review_here(@proposal.id)) %>
   <%= link_to "Add Review", new_review_path(:proposal_id => @proposal.id ) %>
    |

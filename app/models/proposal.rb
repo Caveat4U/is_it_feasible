@@ -7,14 +7,19 @@ class Proposal < ActiveRecord::Base
 	attr_accessible :title, :summary, :body, :score, :user_id, :created_at, :updated_at
 
  	# Check if proposal has reviews associated with it
- 	# Parameters: proposal id
- 	# Returns: Bool
+ 	#
+ 	# Parameters: Proposal ID
+ 	#
+ 	# Returns: True if there are reviews for the proposal
+ 	# Returns: False if there are no reviews for the proposal
 	def has_reviews?(proposal_id)
 		return (Review.find_all_by_proposal_id(proposal_id).count > 0)
 	end
 
 	# Get reviews associate with a proposal
-	# Parameters: proposal id
+	#
+	# Parameters: Proposal ID
+	#
 	# Returns: Hash with reviews
 	def get_reviews(proposal_id)
 		return Review.find_all_by_proposal_id(proposal_id)
