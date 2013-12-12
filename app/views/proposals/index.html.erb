@@ -15,8 +15,6 @@
   <tr>
     <td><%= proposal.title %></td>
     <td><%= proposal.summary %></td>
-    <td><%= proposal.body %></td>
-    <td><%= proposal.score %></td>
     <td><%= link_to 'Show Proposal', proposal %></td>
     <%# If current user isn't business, don't show edit and delete links %>
     <% if (current_user.major == "Business") %>

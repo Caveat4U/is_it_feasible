@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class ApplicationController - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/application_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActionController::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-after_sign_in_path_for">#after_sign_in_path_for</a>
+    
+    <li><a href="#method-i-require_user_to_be_business-21">#require_user_to_be_business!</a>
+    
+    <li><a href="#method-i-require_user_to_be_engineering-21">#require_user_to_be_engineering!</a>
+    
+    <li><a href="#method-i-user_is_business-3F">#user_is_business?</a>
+    
+    <li><a href="#method-i-user_is_engineering-3F">#user_is_engineering?</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./NotesToInstructor_rdoc.html">NotesToInstructor</a>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+    <li class="file"><a href="./public/robots_txt.html">robots</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ActiveSupport.html">ActiveSupport</a>
+  
+    <li><a href="./ActiveSupport/TestCase.html">ActiveSupport::TestCase</a>
+  
+    <li><a href="./IsItFeasible.html">IsItFeasible</a>
+  
+    <li><a href="./IsItFeasible/Application.html">IsItFeasible::Application</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./BrowsingTest.html">BrowsingTest</a>
+  
+    <li><a href="./ControllerHelpers.html">ControllerHelpers</a>
+  
+    <li><a href="./CreateProposals.html">CreateProposals</a>
+  
+    <li><a href="./CreateReviews.html">CreateReviews</a>
+  
+    <li><a href="./DeviseCreateUsers.html">DeviseCreateUsers</a>
+  
+    <li><a href="./HtmlSelectorsHelpers.html">HtmlSelectorsHelpers</a>
+  
+    <li><a href="./NavigationHelpers.html">NavigationHelpers</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./Proposal.html">Proposal</a>
+  
+    <li><a href="./ProposalsController.html">ProposalsController</a>
+  
+    <li><a href="./ProposalsHelper.html">ProposalsHelper</a>
+  
+    <li><a href="./Review.html">Review</a>
+  
+    <li><a href="./ReviewsController.html">ReviewsController</a>
+  
+    <li><a href="./ReviewsHelper.html">ReviewsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserController.html">UserController</a>
+  
+    <li><a href="./UserHelper.html">UserHelper</a>
+  
+    <li><a href="./WithinHelpers.html">WithinHelpers</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class ApplicationController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-after_sign_in_path_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">after_sign_in_path_for</span><span
+            class="method-args">(resource)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Method to override devise gem default method Change path redirect for
+post-sign-in</p>
+
+<p>Parameters: Resource (not used, just needed to override)</p>
+          
+
+          
+          <div class="method-source-code" id="after_sign_in_path_for-source">
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">after_sign_in_path_for</span>(<span class="ruby-identifier">resource</span>)
+  <span class="ruby-identifier">proposals_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- after_sign_in_path_for-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- after_sign_in_path_for-method -->
+
+    
+      <div id="method-i-require_user_to_be_business-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">require_user_to_be_business!</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Method to protect data from non-business users Checks if user logged in and
+major is business Routes back to root if either fail</p>
+          
+
+          
+          <div class="method-source-code" id="require_user_to_be_business-21-source">
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">require_user_to_be_business!</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">user_signed_in?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">user_is_business?</span>
+              <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>, <span class="ruby-value">:alert</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Access Denied&quot;</span>
+      <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- require_user_to_be_business-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- require_user_to_be_business-21-method -->
+
+    
+      <div id="method-i-require_user_to_be_engineering-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">require_user_to_be_engineering!</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Method to protect data from non-engineering users Checks if user logged in
+and major is engineering Routes back to root if either fail</p>
+          
+
+          
+          <div class="method-source-code" id="require_user_to_be_engineering-21-source">
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">require_user_to_be_engineering!</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">user_signed_in?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">user_is_engineering?</span>
+              <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>, <span class="ruby-value">:alert</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Access Denied&quot;</span>
+      <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- require_user_to_be_engineering-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- require_user_to_be_engineering-21-method -->
+
+    
+      <div id="method-i-user_is_business-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user_is_business?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Method to determine if user is a business major</p>
+
+<p>Returns: True if business Returns: False if not business</p>
+          
+
+          
+          <div class="method-source-code" id="user_is_business-3F-source">
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">user_is_business?</span>
+      <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">major</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Business&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- user_is_business-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- user_is_business-3F-method -->
+
+    
+      <div id="method-i-user_is_engineering-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user_is_engineering?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Method to determine if user is an engineering major</p>
+
+<p>Returns: True if engineering student Returns: False if not engineering
+student</p>
+          
+
+          
+          <div class="method-source-code" id="user_is_engineering-3F-source">
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">user_is_engineering?</span>
+      <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">major</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Engineering&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- user_is_engineering-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- user_is_engineering-3F-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
