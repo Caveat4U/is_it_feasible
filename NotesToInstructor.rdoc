@@ -1,0 +1,81 @@
+User accounts for testing (already created, just use to login as needed for testing
+permissions validation and add/remove/modify of reviews and proposals):
+	Engineering Users:
+		User: e1@gmail.com Password: 12345678
+		User: e2@gmail.com Password: 12345678
+	Business Users:
+		User: b1@gmail.com Password: 12345678
+		User: b2@gmail.com Password: 12345678
+
+Instructions:
+	Website root auto-directs to login page, should not allow any access to other pages
+	without first authenticating a user.
+
+	Upon login, routes to proposal index. If business user, should only see proposals
+	created by that user. If engineering user, see all proposals
+		User b1@gmail.com will have proposals, user b2@gmail.com will have non for
+		ease of testing
+
+	General requirements: if proposal or review is created/edited/deleted the changes
+	should persist to the database and views (validated by cucumber testing)
+
+	Logout should redirect to root login page
+
+Site permissions:
+	Business user permissions:
+		Can add proposals
+		Can edit/delete thier own proposals
+		Can see reviews for their proposals
+		Cannot edit/delete any reviews
+		Cannot access proposals of other users
+
+	Engineering user permissions:
+		Can add 1 review to each proposal
+		Can edit/delete their own reviews
+		Cannot edit/delete proposals
+
+Test coverage:
+	Covered via cucumber and rspec.
+
+	Per discussion in tutorial, devise doesn't work with rspec and thus all tests requiring
+	are completed via cucumber testing.
+
+	Rspec testing models and allow validation of create methods
+
+	Because rspec can't validate, database persitance and site routing is all tested via
+	the cucumber testing suite
+
+Changes from the original proposal:
+	Home Page:
+		Decided to lock down entire site, proposal displace is now considered the homepage
+		but only visible after login.
+		Therefore, the login page constitutes the home page until user is validated
+
+		Link for sign in and registration persist throughout the site via the navigation bar.
+		Therefore, a registration link isn't necessary.
+	Registration Page:
+		Same a proposal
+	Business Dashboard:
+		Moved this to a single view, as seen by engineering student. Found that code ended up
+		being redundant and uneccesary to have different splash pages. Content is filtered by
+		user.
+	Business Proposal Creation/Edit Page:
+		Removed text limitation, allowing max text as per ruby forms
+	Engineering Student Karma Forum:
+		Since the views were merged, elminated the karma feature of the forum. Found that it
+		doesn't add much in the way of benifit to users. Cool idea, but not benificial
+
+		Instead, added score to all reviews such that users can give an over-all score to the
+		proposal.
+	Business Proposal View Page:
+		Same as proposal, added various links for edit/delete for reviews/proposals with appropriate
+		permissions
+	Review Creation/Edit Page:
+		Not in proposal, need to create reviews
+	User Edit/Delete Page:
+		Not in proposal, added to enable devise functionality
+	Overall UI:
+		Largely matches low-fi sketches, added navbar which was not orginally in the proposal
+		Found a navbar with user control links was more effective
+	Stakeholders:
+		Fulfills all pre-determined stakeholder requirements
