@@ -19,13 +19,16 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
 end
+
 group :test do
   gem 'cucumber'
   gem 'cucumber-rails', :require => false 
   gem 'cucumber-rails-training-wheels'
 end
+
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Gems used only for assets and not required
