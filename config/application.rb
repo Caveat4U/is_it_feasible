@@ -66,6 +66,6 @@ module IsItFeasible
 
     # Forces application to not load models or access the DB when precompiling
     # assets - NEEDED for DEVISE to push to HEROKU - DO NOT REMOVE!!!
-    # config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = false
   end
 end
