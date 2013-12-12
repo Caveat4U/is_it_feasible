@@ -2,7 +2,7 @@ IsItFeasible::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Change mailer for devise
-  config.action_mailer.default_url_options = { :host => 'secret-garden-9030.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'http://floating-mountain-8037.herokuapp.com/' }
 
   # Code is not reloaded between requests
   config.cache_classes = true
