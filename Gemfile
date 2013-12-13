@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
+ruby "1.9.2"
 
-gem 'rails', '3.1.0'
-gem 'devise'
+gem 'rails', '3.2.14'
+gem 'devise', " ~> 2.2.8"
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
@@ -27,7 +28,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
 # Gems used only for assets and not required

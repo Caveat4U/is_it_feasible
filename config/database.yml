@@ -18,12 +18,5 @@ test: &test
   pool: 5
   timeout: 5000
 
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: myapp_development
-  pool: 5
-  password:
-
 cucumber:
   <<: *test
