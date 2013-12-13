@@ -68,6 +68,10 @@ IsItFeasible::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-config.active_record.mass_assignment_sanitizer = false
+  config.active_record.mass_assignment_sanitizer = false
+
+  config.action_controller.consider_all_requests_local = true
+  config.action_view.debug_rjs = true
+  config.action_controller.perform_caching = false
 
 end
