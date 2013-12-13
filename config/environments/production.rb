@@ -2,7 +2,7 @@ IsItFeasible::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Change mailer for devise
-  config.action_mailer.default_url_options = { :host => 'http://safe-basin-3933.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'http://vast-bayou-8551.herokuapp.com/' }
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -71,7 +71,7 @@ IsItFeasible::Application.configure do
   config.active_record.mass_assignment_sanitizer = false
 
   config.action_controller.consider_all_requests_local = true
-  config.action_view.debug_rjs = true
+#  config.action_view.debug_rjs = true
   config.action_controller.perform_caching = false
 
 end
