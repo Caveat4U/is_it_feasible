@@ -79,3 +79,6 @@ Changes from the original proposal:
 		Found a navbar with user control links was more effective
 	Stakeholders:
 		Fulfills all pre-determined stakeholder requirements
+
+Testing Setup:
+	Make sure to run rake db:test:prepare prior to running tests
