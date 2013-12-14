@@ -1,4 +1,4 @@
-Sat, 14 Dec 2013 12:06:31 -0800
+Sat, 14 Dec 2013 14:26:14 -0800
 ./tmp/cache/assets/D8C/400/sprockets%2Fd3683001faef7b56b059e2e1cb0e21fa	Fri, 29 Nov 2013 15:18:54 -0800
 ./tmp/cache/assets/D24/390/sprockets%2Fcf7633755d04f7c09967dec4d7d71d27	Fri, 29 Nov 2013 15:18:54 -0800
 ./tmp/cache/assets/D32/A10/sprockets%2F13fe41fee1fe35b49d145bcc06610705	Wed, 11 Dec 2013 11:38:49 -0800
@@ -54,7 +54,7 @@ Sat, 14 Dec 2013 12:06:31 -0800
 ./tmp/cache/assets/CD1/990/sprockets%2F27940bd32128f6c5333b413ec33c29ae	Fri, 29 Nov 2013 15:18:55 -0800
 ./tmp/cache/assets/E04/890/sprockets%2F2f5173deea6c795b8fdde723bb4b63af	Fri, 29 Nov 2013 15:18:53 -0800
 ./tmp/cache/assets/D00/D70/sprockets%2F4ffc182100fe4922385e3ab13ea2f039	Fri, 29 Nov 2013 15:18:52 -0800
-./NotesToInstructor.rdoc	Sat, 14 Dec 2013 11:53:57 -0800
+./NotesToInstructor.rdoc	Sat, 14 Dec 2013 14:25:55 -0800
 ./spec/spec_helper.rb	Wed, 11 Dec 2013 12:40:48 -0800
 ./spec/models/reviews_spec.rb	Wed, 11 Dec 2013 21:52:48 -0800
 ./spec/models/user_spec.rb	Wed, 11 Dec 2013 21:54:03 -0800
@@ -108,5 +108,6 @@ Sat, 14 Dec 2013 12:06:31 -0800
 ./app/controllers/application_controller.rb	Wed, 11 Dec 2013 12:40:48 -0800
 ./app/controllers/user_controller.rb	Fri, 29 Nov 2013 15:54:17 -0800
 ./doc/README_FOR_APP	Mon, 18 Nov 2013 12:44:18 -0800
+./NotesToInstructor.rdoc~	Sat, 14 Dec 2013 12:18:39 -0800
 ./README.rdoc~	Wed, 20 Nov 2013 13:26:50 -0800
 ./public/robots.txt	Mon, 18 Nov 2013 12:44:18 -0800

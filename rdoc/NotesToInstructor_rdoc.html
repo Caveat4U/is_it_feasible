@@ -53,6 +53,8 @@
   
     <li class="file"><a href="./NotesToInstructor_rdoc.html">NotesToInstructor</a>
   
+    <li class="file"><a href="./NotesToInstructor_rdoc~.html">NotesToInstructor</a>
+  
     <li class="file"><a href="./README_rdoc.html">README</a>
   
     <li class="file"><a href="./README_rdoc~.html">README</a>
@@ -218,6 +220,14 @@ Stakeholders:
 <p>Testing Setup:</p>
 
 <pre>Make sure to run rake db:test:prepare prior to running tests</pre>
+
+<p>Walkthrough:</p>
+
+<pre>Login as a 'Business' user, User: b1@gmail.com Password: 12345678 - you now have the ability to create proposals. Create a proposal. Once the proposal is created, you should have the ability to edit or delete it. You will be able to see any reviews that have been added, and you will not have the permissions to edit those reviews.
+        If you log in as a different user, (b2@gmail.com), you'll notice you cannot see b1's proposals. This is intentional. we wanted a business student to only be able to access proposals that they create and own. 
+
+Login as an 'Engineering' user, User: e1@gmail.com Password: 12345678. You can create reviews for any proposal. You will be able to edit your own reviews.
+        If you log in as e2@gmail.com, you won't be able to edit the reviews of other people, but you can see reviews from other people.</pre>
 
 </div>
 
