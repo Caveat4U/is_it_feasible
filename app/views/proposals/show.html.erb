@@ -15,11 +15,6 @@
   <%= @proposal.body %>
 </p>
 
-<p>
-  <b>Score:</b>
-  <%= @proposal.score %>
-</p>
-
 <%# If current user is the owner of the proposal, then show modify and delete links %>
 <% if user_is_owner_of_proposal?(@proposal.user_id) %>
   <%= link_to 'Edit', edit_proposal_path(@proposal) %>
